@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Most Romantic Proposal</title>
+
+  <!-- Elegant script font -->
+  <link href="https://fonts.googleapis.com/css2?family=Bitcount Single Ink&family=Inter:wght@300;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent: #ff6b9a;
+      --accent-2: #9b6bff;
+      --soft: rgba(255,255,255,0.85);
+      --card: rgba(255,255,255,0.06);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;}
+
+    /* layout */
+    .page{height:100vh;width:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:28px;position:relative;overflow:hidden}
+    .hidden{display:none}
+    .fade-in{animation:fadeIn 700ms ease forwards}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+    /* animated gradient background (smooth) */
+    .bg-animated{position:absolute;inset:0;z-index:0;background:linear-gradient(120deg,#ff9a9e,#fad0c4,#a18cd1,#fbc2eb);background-size:400% 400%;animation:gradientMove 12s ease infinite}
+    @keyframes gradientMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+    /* common card */
+    .card{position:relative;z-index:10;background:rgba(255,255,255,0.08);backdrop-filter: blur(6px);padding:28px;border-radius:18px;box-shadow:0 10px 30px rgba(12,12,20,0.25);border:1px solid rgba(255,255,255,0.06);max-width:920px;width:100%;text-align:center;color:var(--soft)}
+
+    h1{font-family:'Bitcount Single Ink',cursive;font-size:52px;margin:0 0 6px;color:white}
+    h2{font-size:26px;margin:6px 0 14px;color:var(--soft)}
+    p.lead{margin:0 auto;max-width:760px;font-size:16px;line-height:1.6;color:rgba(255,255,255,0.92)}
+
+    .btn{display:inline-block;margin-top:18px;padding:12px 28px;border-radius:999px;border:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;font-weight:600;font-size:18px;cursor:pointer;box-shadow:0 8px 30px rgba(155,107,255,0.16);transition:transform .18s ease}
+    .btn:hover{transform:translateY(-4px)}
+
+    /* small secondary button */
+    .ghost{background:transparent;border:1px solid rgba(255,255,255,0.12);padding:10px 18px;border-radius:999px;color:var(--soft);cursor:pointer}
+
+    /* page-specific styles */
+    /* Memories page - heart balloons */
+    .balloon{position:absolute;bottom:-140px;font-size:28px;animation:balloonUp linear infinite;opacity:0.95}
+    @keyframes balloonUp{0%{transform:translateY(0) scale(0.9);opacity:0}10%{opacity:1}100%{transform:translateY(-120vh) scale(1.05);opacity:0}}
+
+    /* Special Proposal page (night sky) */
+    .night-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 10% 10%, rgba(255,255,255,0.04), transparent 20%), linear-gradient(#041224,#071224 60%, #071a2a);z-index:0}
+    .moon{position:absolute;top:8vh;right:14vw;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,#e6e6e6 55%,#bdbdbd 70%);box-shadow:0 0 60px rgba(255,255,240,0.12);opacity:0.98}
+
+    .star{position:absolute;width:2px;height:2px;border-radius:50%;background:white;opacity:0.9;filter:drop-shadow(0 0 6px rgba(255,255,255,0.5))}
+
+    .lantern{position:absolute;bottom:-120px;width:36px;height:54px;border-radius:8px;background:linear-gradient(180deg,#ffd6d8,#ffb3c1);box-shadow:0 10px 30px rgba(255,100,140,0.12);animation:lanternFloat linear infinite}
+    .lantern:before{content:"";position:absolute;top:-22px;left:50%;transform:translateX(-50%);width:4px;height:22px;background:rgba(255,255,255,0.6)}
+    @keyframes lanternFloat{0%{transform:translateY(0)}100%{transform:translateY(-120vh)}}
+
+    .message-box{position:relative;z-index:10;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));padding:28px;border-radius:14px;max-width:760px;margin:0 20px}
+    .message-text{font-family:'Great Vibes',cursive;font-size:32px;color:white;line-height:1.4;min-height:110px}
+
+    /* typewriter caret */
+    .typewrap{display:inline-block;border-right:3px solid rgba(255,255,255,0.9);padding-right:6px;animation:blinkCaret 900ms steps(2) infinite}
+    @keyframes blinkCaret{50%{border-color:transparent}100%{border-color:rgba(255,255,255,0.9)}}
+
+    /* hearts burst */
+    .burst-heart{position:absolute;font-size:28px;pointer-events:none;animation:burst 900ms ease-out forwards}
+    @keyframes burst{0%{transform:translateY(0) scale(.6);opacity:1}100%{transform:translateY(-220px) scale(1.5);opacity:0}}
+
+    /* responsive */
+    @media (max-width:720px){h1{font-size:42px} .message-text{font-size:24px}}
+
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: Landing -->
+  <div id="page1" class="page">
+    <div class="bg-animated"></div>
+    <div class="card fade-in">
+      <h1>HI PRETTY GIRL</h1>
+      <h2>A small surprise, just for you Annia khan ✨</h2>
+      <p class="lead">Ab Etni cute si larki ke liye thori si efforts to karni hi cahihye — Ek message mei bi keh sakta tha but speical girl ke liye kuch special try karna tha. Ready?</p>
+      <div style="margin-top:18px">
+        <button class="btn" id="toMemories">Let's See ➡️</button>
+      </div>
+    </div>
+    <div style="position:absolute;left:20px;bottom:24px;color:rgba(255,255,255,0.6);font-size:13px;z-index:11">Tip: Use headphones for a soft background track (optional)</div>
+  </div>
+
+  <!-- PAGE 2: Memories (balloons) -->
+  <div id="page2" class="page hidden">
+    <div class="bg-animated" style="filter:hue-rotate(20deg) saturate(1.05)"></div>
+    <div class="card fade-in">
+      <h1>Cuteness Overloaded ❤</h1>
+      <h2>Aap ke hairs, aapki personality Mind blowing, Aapko ek bar dekhny ke bad dil karta hei ke baar baar dekhu. ✨</h2>
+      <p class="lead">Mujhe zayada to kuch nahi pata aapke baare mei bas jitna bi dekha hei aapko to dekh ke ye hi laga hei Perfect Cuteness, Outstanding Dressing Style, Jitni tareef karu utni kam hei, Ready for more?</p>
+      <div style="margin-top:18px">
+        <button class="btn" id="toSpecial">Next ➡️</button>
+      </div>
+    </div>
+    <!-- balloons -->
+  </div>
+
+  <!-- PAGE 3: Special Proposal (night sky) -->
+  <div id="page3" class="page hidden">
+    <div class="night-bg"></div>
+    <div class="moon"></div>
+
+    <!-- dynamic stars & lanterns appended by JS -->
+    <div class="message-box fade-in">
+      <div class="message-text" id="typewriter"> <!-- typewriter text appears here -->
+      </div>
+      <div style="margin-top:20px">
+        <button class="btn" id="yesHeart">Yes Bilkul ❤️</button>
+        <button class="ghost" id="playMusic">Play Music</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- optional soft music (user can toggle) -->
+  <audio id="bgmusic" loop src="" preload="none"></audio>
+
+  <script>
+    /* ---------- Utility: show/hide pages ---------- */
+    function show(id){
+      document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
+      const el = document.getElementById(id);
+      el.classList.remove('hidden');
+    }
+
+    // initial
+    show('page1');
+
+    // Buttons to navigate
+    document.getElementById('toMemories').addEventListener('click', ()=>{
+      show('page2');
+      startBalloons();
+    });
+    document.getElementById('toSpecial').addEventListener('click', ()=>{
+      show('page3');
+      initStars(120);
+      initLanterns(6);
+      startTypewriter();
+    });
+
+    /* ---------- Balloons (Page 2) ---------- */
+    function startBalloons(){
+      const page = document.getElementById('page2');
+      // remove existing
+      Array.from(page.querySelectorAll('.balloon')).forEach(n=>n.remove());
+      const colors = ['#ff6b9a','#ff8fb2','#ffc7d6','#ffd1a8','#f7a8ff'];
+      for(let i=0;i<9;i++){
+        const b = document.createElement('div');
+        b.className = 'balloon';
+        b.style.left = (6 + Math.random()*88) + '%';
+        b.style.bottom = (-120 - Math.random()*60) + 'px';
+        b.style.animationDuration = (6 + Math.random()*6) + 's';
+        b.style.fontSize = (28 + Math.random()*14) + 'px';
+        b.style.transform = 'translateY(0)';
+        b.style.opacity = 0;
+        b.textContent = '🎈';
+        b.style.filter = 'drop-shadow(0 8px 18px rgba(0,0,0,.18))';
+        page.appendChild(b);
+        // stagger appear
+        setTimeout(()=>{b.style.opacity = 1;}, 120*i);
+      }
+    }
+
+    /* ---------- Stars & Lanterns (Page 3) ---------- */
+    function initStars(count){
+      const page = document.getElementById('page3');
+      // remove existing stars
+      Array.from(page.querySelectorAll('.star')).forEach(n=>n.remove());
+      for(let i=0;i<count;i++){
+        const s = document.createElement('div');
+        s.className='star';
+        s.style.left = (Math.random()*100) + '%';
+        s.style.top = (Math.random()*95) + '%';
+        s.style.width = s.style.height = (1 + Math.random()*2) + 'px';
+        s.style.animationDuration = (1.6 + Math.random()*1.8) + 's';
+        page.appendChild(s);
+      }
+    }
+
+    function initLanterns(n){
+      const page = document.getElementById('page3');
+      Array.from(page.querySelectorAll('.lantern')).forEach(n=>n.remove());
+      for(let i=0;i<n;i++){
+        const L = document.createElement('div');
+        L.className='lantern';
+        L.style.left = (6 + Math.random()*88) + '%';
+        L.style.animationDuration = (14 + Math.random()*10) + 's';
+        L.style.animationDelay = (i*1.8) + 's';
+        page.appendChild(L);
+      }
+    }
+
+    /* ---------- Typewriter effect ---------- */
+    const messageLines = [
+      "Kabhi kisi ko dekh ke aisa feel nahi hua ke kisi ke liye etna special kiya jaye...",
+      "Zayada to kuch nahi kehta but etni cute larki ko dekh ke ye laga ke ek aisi friend honi chahiye life mei.",
+      "Miss Cutie Will You Be My Friend 💝🙈?"
+    ];
+
+    function startTypewriter(){
+      const el = document.getElementById('typewriter');
+      el.innerHTML = '';
+      // show lines one by one
+      let lineIndex = 0;
+      function showNextLine(){
+        if(lineIndex >= messageLines.length) return;
+        const txt = messageLines[lineIndex];
+        const span = document.createElement('span');
+        span.className = 'typewrap';
+        el.appendChild(span);
+        let i=0;
+        function step(){
+          if(i<=txt.length){
+            span.textContent = txt.slice(0,i);
+            i++;
+            setTimeout(step, 45 + Math.random()*35);
+          } else {
+            // after full line, add a <br> and next
+            el.appendChild(document.createElement('br'));
+            lineIndex++;
+            setTimeout(showNextLine, 400);
+          }
+        }
+        step();
+      }
+      showNextLine();
+    }
+
+    /* ---------- Burst hearts on Yes ---------- */
+    document.getElementById('yesHeart').addEventListener('click', (e)=>{
+      const page = document.getElementById('page3');
+      for(let i=0;i<28;i++){
+        const b = document.createElement('div');
+        b.className='burst-heart';
+        b.style.left = (45 + Math.random()*20 -10) + '%';
+        b.style.top = (55 + Math.random()*20 -10) + '%';
+        b.textContent = ['💖','❤️','💘'][Math.floor(Math.random()*3)];
+        page.appendChild(b);
+        setTimeout(()=>b.remove(),1200);
+      }
+      // small pulse on button
+      const btn=e.currentTarget;
+      btn.disabled=true;btn.style.transform='scale(0.98)';
+      setTimeout(()=>{btn.disabled=false;btn.style.transform='scale(1)';},1400);
+    });
+
+    /* ---------- Music control (optional) ---------- */
+    const musicBtn = document.getElementById('playMusic');
+    const bg = document.getElementById('bgmusic');
+    // NOTE: Browsers often block autoplay. The audio source is left empty for privacy — you can paste a link to a gentle piano mp3 here or keep it blank.
+    // Example: bg.src = 'https://example.com/soft-piano.mp3';
+
+    musicBtn.addEventListener('click', ()=>{
+      if(!bg.src){
+        alert('Music file not set. If you want background music, paste a mp3 URL into the audio tag source in the HTML.');
+        return;
+      }
+      if(bg.paused){bg.play();musicBtn.textContent='Pause Music';}
+      else{bg.pause();musicBtn.textContent='Play Music';}
+    });
+
+    /* ---------- Helpful note for editing the message ---------- */
+    // To customize the proposal message, replace the lines in `messageLines` array near top of this script.
+
+  </script>
+</body>
+</html>
